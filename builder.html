@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Crear Rutinas</title>
+<link rel="stylesheet" href="css/styles.css">
+<script defer src="js/app.js"></script>
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">GYM</div>
+    <nav>
+        <a href="builder.html">Crear Rutina</a>
+        <a href="workout.html">Entrenar</a>
+        
+    </nav>
+</header>
+
+<main class="container">
+
+    <section class="card">
+    <h2>Nueva Rutina</h2>
+    <input type="text" id="routineName" placeholder="Nombre de la rutina">
+    <button class="primary-btn" onclick="createRoutine()">Crear Rutina</button>
+
+    <!-- NUEVO BOTÓN -->
+    <button class="secondary-btn" onclick="deleteRoutine()">
+        Eliminar Rutina Seleccionada
+    </button>
+</section>
+
+
+    <section class="card">
+        <h3>Añadir ejercicio</h3>
+        <section class="card">
+        <h3>Seleccionar Rutina</h3>
+        <div id="builderRoutineButtons" class="routine-buttons"></div>
+        </section>
+        <input type="text" id="exerciseName" placeholder="Nombre ejercicio">
+        <input type="file" id="exerciseImage">
+        <button class="primary-btn" onclick="addExerciseToRoutine()">Añadir</button>
+    </section>
+
+    <section id="builderExerciseList"></section>
+
+</main>
+
+</body>
+</html>

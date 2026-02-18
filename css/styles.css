@@ -1,0 +1,366 @@
+:root {
+  --bg: #f5f5f7;
+  --card: rgba(255,255,255,0.7);
+  --text: #1d1d1f;
+  --primary: #0071e3;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0d0d0f;
+    --card: rgba(30,30,32,0.7);
+    --text: #f5f5f7;
+    --primary: #4da3ff;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: background .4s ease, color .4s ease;
+}
+
+/* HEADER */
+.header {
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(20px);
+  background: var(--card);
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.header nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  opacity: .7;
+  transition: .3s;
+}
+
+.header nav a:hover {
+  opacity: 1;
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.card {
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  padding: 25px;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+  animation: fadeUp .6s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity:0; transform: translateY(15px); }
+  to { opacity:1; transform: translateY(0); }
+}
+
+.primary-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 14px;
+  border: none;
+  background: var(--primary);
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  transition: .3s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-2px);
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.1);
+  background: transparent;
+  color: var(--text);
+}
+
+.footer {
+  text-align: center;
+  padding: 30px;
+  opacity: .5;
+}
+select {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  margin: 10px 0;
+  background: transparent;
+  color: var(--text);
+}
+
+.secondary-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 12px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.exercise-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  transition: .3s ease;
+}
+
+.exercise-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.exercise-info {
+  flex: 1;
+}
+
+.history {
+  font-size: 12px;
+  opacity: .6;
+}
+
+.hidden {
+  display: none;
+}
+/* =========================
+   DISEÑO MOBILE PREMIUM
+========================= */
+
+body {
+  font-size: 18px;
+}
+
+.mobile-header {
+  padding: 30px 20px 10px;
+}
+
+.mobile-header h1 {
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.mobile-header p {
+  opacity: .6;
+  margin-top: 5px;
+}
+
+.mobile-container {
+  padding: 20px;
+}
+
+/* BOTONES GRANDES DE RUTINA */
+
+.routine-grid {
+  display: grid;
+  gap: 16px;
+  margin-bottom: 30px;
+}
+
+.routine-btn {
+  padding: 22px;
+  border-radius: 20px;
+  font-size: 20px;
+  font-weight: 600;
+  border: none;
+  background: var(--card);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 8px 30px rgba(0,0,0,.08);
+  transition: .2s ease;
+}
+
+.routine-btn:active {
+  transform: scale(.97);
+}
+
+.routine-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+/* EJERCICIOS GRANDES */
+
+.exercise-card {
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 25px;
+}
+
+.exercise-card img {
+  width: 100%;
+  height: 180px;
+  border-radius: 18px;
+  margin-bottom: 15px;
+}
+
+.exercise-info h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.exercise-info input {
+  font-size: 18px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.primary-btn {
+  font-size: 18px;
+  padding: 18px;
+  border-radius: 18px;
+}
+
+.history {
+  font-size: 15px;
+  margin-bottom: 15px;
+}
+.routine-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.routine-btn {
+  padding: 14px 20px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.08);
+  background: var(--card);
+  cursor: pointer;
+  font-size: 16px;
+  transition: .2s ease;
+}
+
+.routine-btn:hover {
+  transform: translateY(-2px);
+}
+
+.routine-btn.active {
+  background: var(--primary);
+  color: white;
+}
+
+.exercise-card {
+  display: flex;
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.exercise-card img {
+  width: 110px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.exercise-info h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+}
+
+.exercise-info input {
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.hidden {
+  display: none;
+}
+
+.active-link {
+  font-weight: 600;
+}
+/* PROGRESO */
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(0,0,0,0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+#progressFill {
+  height: 100%;
+  width: 0%;
+  background: var(--primary);
+  transition: width .4s ease;
+}
+
+/* CELEBRACIÓN */
+
+.celebration {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn .3s ease;
+}
+
+.celebration-card {
+  background: var(--card);
+  padding: 40px;
+  border-radius: 24px;
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  animation: scaleUp .3s ease;
+}
+
+@keyframes scaleUp {
+  from { transform: scale(.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.secondary-btn {
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--primary);
+  cursor: pointer;
+  transition: .2s;
+}
+
+.secondary-btn:hover {
+  background: var(--primary);
+  color: white;
+}
