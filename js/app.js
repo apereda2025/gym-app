@@ -1,3 +1,7 @@
+const supabaseUrl = "https://bhxaxgberlkrwvyywmdw.supabase.co";
+const supabaseKey = "sb_publishable__EjKGx5DzWBaMvoZB_QwOQ_7-mAoVBP";
+const supabase = window.supabase.createClient(supabaseUrl, supabaseKey);
+
 let routines = JSON.parse(localStorage.getItem("routines")) || {};
 let activeWorkout = null;
 
@@ -5,18 +9,14 @@ let activeWorkout = null;
    CREAR RUTINAS (BUILDER)
 =========================== */
 
-function createRoutine(){
+async function createRoutine(){
     const name = document.getElementById("routineName").value.trim();
-    if(!name || routines[name]) return;
+    if(!name) return;
 
-    routines[name] = [];
-    activeWorkout = name;
-
-    save();
-    renderBuilderRoutineButtons();
-    renderRoutineButtons();
+    await supabase.from("routines").insert([{ name }]);
 
     document.getElementById("routineName").value = "";
+    loadRoutines();
 }
 
 function addExerciseToRoutine(){
@@ -325,4 +325,13 @@ function renderBuilderRoutineButtons(){
 
         container.appendChild(btn);
     });
+}
+async function loadRoutines(){
+    const { data } = await supabase
+        .from("routines")
+        .select("*")
+        .order("created_at");
+
+    renderRoutineButtonsFromDB(data);
+    renderBuilderRoutineButtonsFromDB(data);
 }
